@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BMW models</string>
+
+    <array name="models">
+        <item>1 Serie</item>
+        <item>2 Serie</item>
+        <item>3 Serie</item>
+        <item>4 Serie</item>
+        <item>5 Serie</item>
+        <item>6 Serie</item>
+        <item>7 Serie</item>
+        <item>8 Serie</item>
+        <item>X1 Serie</item>
+        <item>X2 Serie</item>
+        <item>X3 Serie</item>
+        <item>X4 Serie</item>
+        <item>X5 Serie</item>
+        <item>X6 Serie</item>
+        <item>X7 Serie</item>
+        <item>Z4 Serie</item>
+        <item>i3 Serie</item>
+        <item>i8 Serie</item>
+    </array>
+</resources>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">BMW models</string>
+    <array name="models">
+        <item>1 Series</item>
+        <item>2 Series</item>
+        <item>3 Series</item>
+        <item>4 Series</item>
+        <item>5 Series</item>
+        <item>6 Series</item>
+        <item>7 Series</item>
+        <item>8 Series</item>
+        <item>X1 Series</item>
+        <item>X2 Series</item>
+        <item>X3 Series</item>
+        <item>X4 Series</item>
+        <item>X5 Series</item>
+        <item>X6 Series</item>
+        <item>X7 Series</item>
+        <item>Z4 Series</item>
+        <item>i3 Series</item>
+        <item>i8 Series</item>
+    </array>
+</resources>
