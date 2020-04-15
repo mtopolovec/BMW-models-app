@@ -16,19 +16,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private List<String> modelImages = new ArrayList<>();
     private List<String> modelImageNames = new ArrayList<>();
+    private List<String> modelImagesHighRes = new ArrayList<>();
+    private List<String> modelImagesDetails = new ArrayList<>();
     private Context context;
 
-    public RecyclerViewAdapter(List<String> modelImages, List<String> modelImageNames, Context context) {
+    public RecyclerViewAdapter(List<String> modelImages, List<String> modelImageNames, Context context,
+                               List<String> modelImagesHighRes, List<String> modelImagesDetails) {
         this.modelImages = modelImages;
         this.modelImageNames = modelImageNames;
         this.context = context;
+        this.modelImagesHighRes = modelImagesHighRes;
+        this.modelImagesDetails = modelImagesDetails;
     }
 
     @NonNull
@@ -51,8 +57,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Toast.makeText(context,modelImageNames.get(position), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context, ModelsDetailsActivity.class);
-                intent.putExtra("model_image_url",modelImages.get(position));
-                intent.putExtra("model_name",modelImageNames.get(position));
+
+                intent.putExtra("model_image_url",modelImagesHighRes.get(position));
+                intent.putExtra("details",modelImagesDetails.get(position));
                 context.startActivity(intent);
             }
         });

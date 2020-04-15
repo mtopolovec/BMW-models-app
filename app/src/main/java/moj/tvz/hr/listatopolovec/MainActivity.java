@@ -14,11 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
     private List<String> images = new ArrayList<>();
     private List<String> imageNames = new ArrayList<>();
+    private List<String> modelImagesHighRes = new ArrayList<>();
+    private List<String> modelImageDetails = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initHighResImages();
         initImages();
     }
 
@@ -29,9 +32,15 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
+    public void initHighResImages() {
+        modelImageDetails = Arrays.asList(getResources().getStringArray(R.array.details));
+        modelImagesHighRes = Arrays.asList(getResources().getStringArray(R.array.car_models_highRes));
+    }
+
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(images,imageNames,this);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(images,imageNames,this,
+                modelImagesHighRes,modelImageDetails);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

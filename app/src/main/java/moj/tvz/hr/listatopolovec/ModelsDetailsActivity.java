@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
-
 public class ModelsDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,9 +19,9 @@ public class ModelsDetailsActivity extends AppCompatActivity {
     }
 
     private void getIncomingIntent() {
-        if(getIntent().hasExtra("model_image_url") && getIntent().hasExtra("model_name")) {
+        if(getIntent().hasExtra("model_image_url") && getIntent().hasExtra("details")) {
             String modelImageUrl = getIntent().getStringExtra("model_image_url");
-            String modelImageName = getIntent().getStringExtra("model_name");
+            String modelImageName = getIntent().getStringExtra("details");
 
             setModelImage(modelImageUrl,modelImageName);
         }
