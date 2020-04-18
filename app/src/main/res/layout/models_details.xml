@@ -15,11 +15,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="20"
         android:id="@+id/model_details"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:text="BMW Series 1"
         android:textSize="20sp"
         android:textColor="#000"/>
+
+    <Button
+        android:id="@+id/moreDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="openMoreDetails"
+        android:text="@string/more_details" />
 
 </LinearLayout>
