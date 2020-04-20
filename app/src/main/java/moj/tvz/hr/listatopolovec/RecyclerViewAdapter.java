@@ -2,6 +2,7 @@ package moj.tvz.hr.listatopolovec;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -54,8 +54,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,modelImageNames.get(position), Toast.LENGTH_SHORT).show();
-
+                Toast toast = Toast.makeText(context,modelImageNames.get(position), Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0,11);
+                toast.show();
                 Intent intent = new Intent(context, ModelsDetailsActivity.class);
 
                 intent.putExtra("model_image_url",modelImagesHighRes.get(position));

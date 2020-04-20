@@ -1,11 +1,12 @@
 package moj.tvz.hr.listatopolovec;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +51,10 @@ public class ModelsDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ModelsDetailsActivity.this, FullSizePictureActivity.class);
 
-                Toast.makeText(v.getContext(), "Image" ,Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(v.getContext(), "Image" ,Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0,11);
+                toast.show();
+
                 intent.putExtra("picture",image);
                 v.getContext().startActivity(intent);
             }
@@ -58,6 +62,8 @@ public class ModelsDetailsActivity extends AppCompatActivity {
     }
 
     public void openMoreDetails(View v) {
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.animation);
+        v.startAnimation(animation);
         String url = "https://www.bmw.hr/hr/all-models.html";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
