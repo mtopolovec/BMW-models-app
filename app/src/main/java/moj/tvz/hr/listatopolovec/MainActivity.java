@@ -1,5 +1,7 @@
 package moj.tvz.hr.listatopolovec;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +20,15 @@ public class MainActivity extends AppCompatActivity {
     private List<String> modelImageDetails = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initHighResImages();
         initImages();
+
+        registerReceiver(new LowBatteryReceiver(), new IntentFilter(Intent.ACTION_BATTERY_LOW));
+
     }
 
     private void initImages() {
