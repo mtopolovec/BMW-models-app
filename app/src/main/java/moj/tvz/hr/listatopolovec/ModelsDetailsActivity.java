@@ -30,12 +30,8 @@ public class ModelsDetailsActivity extends AppCompatActivity {
     }
 
     private void getIncomingIntent() {
-        if(getIntent().hasExtra("model_image_url") && getIntent().hasExtra("details")) {
-            image = getIntent().getStringExtra("model_image_url");
-            String modelImageName = getIntent().getStringExtra("details");
-
-            setModelImage(image,modelImageName);
-        }
+        PhotoAndDetails photoAndDetails = getPhotoAndDetails();
+        setModelImage(photoAndDetails.getPhoto(),photoAndDetails.getDetails());
     }
 
     private void setModelImage(String modelImageUrl, String modelImageName) {
@@ -55,7 +51,8 @@ public class ModelsDetailsActivity extends AppCompatActivity {
                 toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0,11);
                 toast.show();
 
-                intent.putExtra("picture",image);
+                PhotoAndDetails photoAndDetails = getPhotoAndDetails();
+                intent.putExtra("picture",photoAndDetails.getPhoto());
                 v.getContext().startActivity(intent);
             }
         });
@@ -69,6 +66,12 @@ public class ModelsDetailsActivity extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         i.setData(Uri.parse(url));
         startActivity(i);
+    }
+
+    private PhotoAndDetails getPhotoAndDetails() {
+        Bundle data = getIntent().getExtras();
+        PhotoAndDetails photoAndDetails = (PhotoAndDetails) data.getParcelable("photoAndDetails");
+        return photoAndDetails;
     }
 
 }

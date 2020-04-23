@@ -58,9 +58,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0,11);
                 toast.show();
                 Intent intent = new Intent(context, ModelsDetailsActivity.class);
-
-                intent.putExtra("model_image_url",modelImagesHighRes.get(position));
-                intent.putExtra("details",modelImagesDetails.get(position));
+                intent.putExtra("photoAndDetails", new PhotoAndDetails(modelImagesHighRes.get(position),modelImagesDetails.get(position)));
                 context.startActivity(intent);
             }
         });

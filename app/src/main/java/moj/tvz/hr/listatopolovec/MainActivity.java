@@ -24,11 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initHighResImages();
-        initImages();
-
         registerReceiver(new LowBatteryReceiver(), new IntentFilter(Intent.ACTION_BATTERY_LOW));
 
+        initHighResImages();
+        initImages();
     }
 
     private void initImages() {
