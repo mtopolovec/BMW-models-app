@@ -18,9 +18,9 @@
         android:id="@+id/modelSeries"
         android:layout_toRightOf="@+id/listImage"
         android:text="Test text"
-        android:textColor="#000"
         android:layout_centerVertical="true"
         android:layout_marginLeft="50dp"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        style="@style/TextStyleList"/>
     
 </RelativeLayout>
